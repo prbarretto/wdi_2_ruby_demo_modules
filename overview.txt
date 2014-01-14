@@ -1,0 +1,18 @@
+Modules: (Mixins and Namespaces)
+
+* What are we going to do?
+= Learn how to add and share behavior across classes with Mixins.
+= Learn how to avoid name conflicts in code bases.
+
+* Why are we going to do this?
+- We want one place to define a specific behavior that can
+  be shared.
+- Because we don't want to repeat a lot of code over and over in the
+  code base.
+
+- And we do *not* want class name conflicts
+
+* How do this relate ?
+We learned about Objects and Inheritence and but there are limitations
+of using these ways to construct a coherent and easy to change code
+base.
