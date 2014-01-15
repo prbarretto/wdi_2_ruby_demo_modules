@@ -52,17 +52,10 @@ module GA
   #      entries = pwd_file.read_lines
         entries = pwd_file.readlines
       end
-      # entry_for_user = nil
-      # !!found = entries.find do |entry|
-      #   if email_address == entry.split(':')[0]
-      #     entry_for_user = entry
-      #   end
-      # end
-      # if found
-      #   GA::User.new(entry_for_user[0])
-      # else
-      #   return false
-      # end
+
+      entries.find do |entry|
+        email_address == entry.split(':')[0]
+      end
     end
   end
 end
