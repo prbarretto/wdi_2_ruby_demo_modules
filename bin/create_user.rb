@@ -1,10 +1,5 @@
 require_relative '../lib/user'
 
-module GALogger
-  def print_to_cmd(email, passoword)
-    puts email + " " + password
-  end
-end
 
 def create_user(email, password, password_confirmation)
   user = GA::User.new(email, password, password_confirmation)
