@@ -5,7 +5,7 @@ class UserError < StandardError; end
 
 class User
 
-  PWD_FILENAME = './passwd'
+  PWD_FILENAME = "#{File.dirname(__FILE__)}/../passwd"
 
   attr_accessor :email, :password, :password_confirmation
 
@@ -29,10 +29,10 @@ class User
   end
 
   def save!
-    raise UserError, ("#{@email} is missing a password hash") if @password_hash.nil? 
+    raise UserError, ("#{@email} is missing a password hash") if @password_hash.nil?
     raise UserError, "User #{@email} is not valid" unless self.valid?
-    
-    File.open(PWD_FILENAME, 'a') do |pwd_file|
+
+    File.open(PWD_FILENAME, 'a+') do |pwd_file|
       pwd_file.puts(self.pwd_str)
     end
   end

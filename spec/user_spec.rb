@@ -3,8 +3,8 @@ require_relative '../lib/user'
 
 
 describe User do 
-  before(:each) do
-    #rm_passwd_file
+  after(:each) do
+    rm_passwd_file
   end
 
   let(:email) {'tom@example.com'}
@@ -32,7 +32,6 @@ describe User do
 
   describe "with a password hash" do
     before(:each) do
-      rm_passwd_file
       subject.encrypt_password
     end
 
@@ -44,8 +43,6 @@ describe User do
 
   describe "saved to the pwd file" do
     before(:each) do
-      rm_passwd_file
-      
       @user_hash = {}
      %w{tom jill ed dave}.each do |name|
         @user_hash[name] = User.new("#{name}@example.com", "pw_#{name}", "pw_#{name}")
@@ -62,5 +59,5 @@ describe User do
 end
 
 def rm_passwd_file
-  File.delete(User::PWD_FILENAME)
+  File.delete(User::PWD_FILENAME) if File.exist?(User::PWD_FILENAME)
 end
