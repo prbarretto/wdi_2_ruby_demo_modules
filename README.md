@@ -12,9 +12,13 @@ Demonstrate the following using a code-along.
 
 ** Demonstration **
 
-* Show how a class is having a naming conflict with a built-in Ruby class or a class defined in a library/gem.
+* Look at the ruby_modules.rb file for a very simple example of the Mixin pattern.
+  	
+* Look thru the animal.rb and notice how it includes *climbing* behavior in the Monkey class.
 
-* Namespace this name confliciting class to fix.
+* Look at the data.rb file. The Data class defined here conflicts with a class that is built in to ruby.
+  * Namespace this class using a module.
+
 
 * Show how Ruby doesn't implement multiple base classes.
   * Why this is good thing
@@ -30,20 +34,23 @@ Demonstrate the following using a code-along.
   This is where a Ruby module is created and it's methods, behavior, is shared across
   (*mixed in*) to  other classes.
   
-  * Look at the ruby_module.rb file for a very simple 
-  	example of the Mixin pattern.
-  	
-  * Look thru the animal.rb and notice how it includes *climbing* behavior in the Monkey class.
+  
 
 > Caveat: These techinques are used to reduce technical debt and it's difficult to see how they help out with these small examples. 
 
 ** Lab **
 
-* Create a module that will add the biting behavior and include this behavior in the Dog class.
+* Create a module that will add the biting behavior and include this behavior in the Dog class, defined in the animal.rb file.
 
-* Namespace all the modules and classes.
+* Look at the lib/user.rb file. 
+   A ruby gem or another ruby library could __also__ have a class named User.
 
-* Create a main.rb file that will create objects from these classes and print to the terminal/command line.
+  * Run the spec for this class, rspec -f s 
+  * Namespace this User class to avoid naming conflicts.
+  * Run the spec again and fix.
 
+* Run ruby bin/create_user.rb . __fix it if needed__
+* 
+* Add Logger module that will print out to the command line every time a user is saved.
 
 
